@@ -1,6 +1,6 @@
 // 1. GESTION DU CODE PIN
 function checkPin() {
-    const correctPin = "1234"; 
+    const correctPin = "1418"; 
     const userPin = document.getElementById("pin-input").value;
     const errorMsg = document.getElementById("error-msg");
     const loginOverlay = document.getElementById("login-overlay");
@@ -63,4 +63,5 @@ themeBtn.addEventListener("click", () => {
         themeIcon.classList.add("fa-moon");
         localStorage.setItem("portfolio-theme", "light");
     }
+
 });

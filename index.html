@@ -1,69 +1,547 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Mohamet THIAM</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Sécurisé</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="container header">
-      <h1>Portfolio <span class="highlight">Mohamet THIAM</span></h1>
-      <nav>
-        <ul class="menu">
-          <li><a href="index.html">Accueil</a></li>
-          <li class="dropdown">
-            <a href="#">Projets ▾</a>
-            <ul class="submenu">
-              <li><a href="#">Projet 1</a></li>
-              <li><a href="#">Projet 2</a></li>
-              <li><a href="#">Projet 3</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#">Compétences ▾</a>
-            <ul class="submenu">
-              <li><a href="#">Techniques</a></li>
-              <li><a href="#">Soft Skills</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#">Parcours ▾</a>
-            <ul class="submenu">
-              <li><a href="#">Études</a></li>
-              <li><a href="#">Expériences</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#">Contact ▾</a>
-            <ul class="submenu">
-              <li><a href="#">Email</a></li>
-              <li><a href="#">LinkedIn</a></li>
-              <li><a href="#">GitHub</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
+    <div id="login-overlay">
+        <div class="login-box">
+            <h2>Accès Restreint</h2>
+            <p>Veuillez entrer le code PIN pour accéder au portfolio.</p>
+            <input type="password" id="pin-input" placeholder="Code PIN " maxlength="4">
+            <button onclick="checkPin()">Entrer</button>
+            <p id="error-msg">Code incorrect</p>
+        </div>
     </div>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Bienvenue sur mon Portfolio</h2>
-      <p>Découvrez mes projets, compétences et expériences.</p>
-      <a href="#projets" class="btn">Voir mes projets</a>
+    <div id="main-content" style="display: none;">
+        
+        <header>
+            <div class="logo">Mohamet Thiam</div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#accueil">Accueil</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">Ressources ▾</a>
+                        <div class="dropdown-content">
+                            <a href="#tds">Mes TDs</a>
+                            <a href="#cours">Notes de Cours</a>
+                        </div>
+                    </li>
+
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#a-propos">À Propos</a></li>
+                    <li><a href="#contact" class="btn-contact">Contact</a></li>
+                    
+                    <li>
+                        <button id="theme-toggle" class="theme-btn" title="Changer de thème">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="accueil" class="hero">
+                <h1>Bienvenue dans mon Portfolio</h1>
+                <h1>Système d'Information</h1>
+                <p>Retrouvez tous mes TDs, cours et projets dans un espace moderne et interactif.</p>
+                <a href="#tds" class="cta-button">Voir mes TDs</a>
+            </section>
+
+            <section id="tds">
+                <h2>Travaux Dirigés (TDs)</h2>
+                <div class="card-grid">
+
+
+                  <div class="card">
+                        <div class="card-icon-box">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3>TP 1 : Introduction aux Systèmes d’Information</h3>
+                        <p>Analyse et conception (SI VS PGI)</p>
+                        
+                        <div class="file-list">
+                            
+                            <div class="file-item">
+                                <span>TD1 SI</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp1/td1-si.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp1/td1-si.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="file-item">
+                                <span>TD1 PGI</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp1/td1-pgi.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp1/td1-pgi.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="file-item">
+                                <span>PGI Exercice</span>
+                                <div class="file-actions">
+                                    <span class="xls-tag">XLS</span>
+                                    <a href="assets/downloads/tp1/pgi-exercice.xls" download title="Télécharger Excel">
+                                        <i class="fa-solid fa-file-excel"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                   <div class="card">
+                        <div class="card-icon-box">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <h3>TP 2 : Diagrammes - Processus organisationnel - Odoo</h3>
+                        <p>Modélisation de processus, étude de cas et pratique sur Odoo.</p>
+                        
+                        <div class="file-list">
+                            
+                            <div class="file-item">
+                                <span>Étude de cas (RetailMarket)</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp2/etude-cas-retailmarket.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp2/etude-cas-retailmarket.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="file-item">
+                                <span>Processus organisationnel</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp2/processus-organisationnel.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp2/processus-organisationnel.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="file-item">
+                                <span>Diagramme TD Processus</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp2/diagramme-td-processus.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp2/diagramme-td-processus.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="file-item">
+                                <span>TD 2 SI</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp2/td2-si.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp2/td2-si.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="file-item">
+                                <span>TP Odoo</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp2/tp-odoo.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp2/tp-odoo.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="file-item">
+                                <span>Captures Odoo</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp2/tp-odoo-captures.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp2/tp-odoo-captures.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+               <div class="card">
+                        <div class="card-icon-box">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <h3>TP 3 : Gestion de projet</h3>
+                        <p>Processus de gestion & modélisation de projet.</p>
+                        
+                        <div class="file-list">
+                            
+                            <div class="file-item">
+                                <span>Dossier gestion projet</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp3/dossier-gestion-projet.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp3/dossier-gestion-projet.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="file-item">
+                                <span>Processus de gestion & modélisation</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp3/processus-de-gestion-modelisation.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp3/processus-de-gestion-modelisation.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon-box">
+                            <i class="fa-solid fa-bars-progress"></i>
+                        </div>
+                        <h3>TP 4 : Gantt - MCD</h3>
+                        <p>Planification (Gantt), modélisation (MCD).</p>
+                        
+                        <div class="file-list">
+                            
+                            <div class="file-item">
+                                <span>Sujet TP Gantt</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp4/tp-gantt.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp4/tp-gantt.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="file-item">
+                                <span>Figure Gantt</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp4/gantt-figure.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp4/gantt-figure.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="file-item">
+                                <span>MCD (Exos 1 & 2)</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp4/mcd-exo1-exo2.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp4/mcd-exo1-exo2.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="file-item">
+                                <span>Schéma Acteurs (Training)</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp4/training-schema-acteur.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp4/training-schema-acteur.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon-box">
+                            <i class="fa-solid fa-sitemap"></i>
+                        </div>
+                        <h3>TP 5 : UML</h3>
+                        <p>Modélisation : classes et cas d'utilisation.</p>
+                        
+                        <div class="file-list">
+                            
+                            <div class="file-item">
+                                <span>Diagramme de classe</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp5/diagramme-de-classe.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp5/diagramme-de-classe.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="file-item">
+                                <span>Exercices Use Case</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/tp5/exercices-use-case.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/tp5/exercices-use-case.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+           <section id="cours">
+                <h2>Notes de Cours</h2>
+                
+                <div class="card-grid">
+                    
+                    <div class="card">
+                        <div class="card-icon-box">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+                        <h3>Système d'information et Organisation</h3>
+                        <p>Concepts fondamentaux et enjeux de l'information.</p>
+                        
+                        <div class="file-list">
+                            <div class="file-item">
+                                <span>Cours Info</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/cours/cours-info.pdf" target="_blank" title="Voir">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/cours/cours-info.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon-box">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </div>
+                        <h3>Gestion de Projet</h3>
+                        <p>Méthodes, planification et pilotage de projets SI.</p>
+                        
+                        <div class="file-list">
+                            <div class="file-item">
+                                <span>Cours Complet</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/cours/cours-gestion-projet.pdf" target="_blank" title="Voir">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/cours/cours-gestion-projet.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="file-item">
+                                <span>Version Étudiant</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/cours/cours-gestion-projet-etudiant.pdf" target="_blank" title="Voir">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/cours/cours-gestion-projet-etudiant.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon-box">
+                            <i class="fa-solid fa-folder-tree"></i>
+                        </div>
+                        <h3>Les livrables d’un SI</h3>
+                        <p>Cycle de vie et documents attendus.</p>
+                        
+                        <div class="file-list">
+                            <div class="file-item">
+                                <span>Cours Livrables</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/cours/cours-livrables.pdf" target="_blank" title="Voir">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/cours/cours-livrables.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon-box">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <h3>Modélisation & Use Case</h3>
+                        <p>Processus de gestion et cas d'utilisation (UML).</p>
+                        
+                        <div class="file-list">
+                            <div class="file-item">
+                                <span>Cours Modélisation</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/cours/cours-modelisation.pdf" target="_blank" title="Voir">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/cours/cours-modelisation.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon-box">
+                            <i class="fa-solid fa-cube"></i>
+                        </div>
+                        <h3>Odoo</h3>
+                        <p>Découverte et paramétrage de l'ERP Odoo.</p>
+                        
+                        <div class="file-list">
+                            <div class="file-item">
+                                <span>Cours Odoo</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/cours/cours-odoo.pdf" target="_blank" title="Voir">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/cours/cours-odoo.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            </main>
+
+            <section id="projets">
+                <h2>Projets</h2>
+                <div class="card">
+                    <h3>Section en construction</h3>
+                    <p>La présentation de mes projets sera disponible très bientôt !</p>
+                    <br>
+                    <i class="fa-solid fa-person-digging" style="font-size: 2rem; color: var(--primary);"></i>
+                </div>
+            </section>
+
+            <section id="a-propos">
+                <h2>À propos de moi</h2>
+                
+                <div class="about-card">
+                    <div class="about-content">
+                        <p class="about-status">Étudiant en MIAGE — Université Paris Nanterre</p>
+                        
+                        <p>
+                            Étudiant passionné par les <strong>Systèmes d'Information</strong>, je m'intéresse particulièrement à la gestion de bases de données et au développement web.
+                        </p>
+                        
+                        <p>
+                            Ce portfolio retrace mon parcours académique, mes projets techniques et les compétences que j'ai acquises <strong>spécifiquement dans le cadre de ce module</strong>. Il a pour but de synthétiser mes apprentissages et de mettre à disposition mes travaux réalisés durant cette période.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2>Contact</h2>
+                
+                <div class="contact-container">
+                    <p class="contact-intro">N'hésitez pas à me contacter pour toute question ou collaboration.</p>
+
+                    <div class="contact-grid">
+                        <a href="mailto:votre.email@exemple.com" class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <h3>Email</h3>
+                            <p>votre.email@exemple.com</p>
+                        </a>
+
+                        <a href="tel:+33600000000" class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <h3>Téléphone</h3>
+                            <p>+33 6 00 00 00 00</p>
+                        </a>
+
+                        <a href="https://github.com/votre-pseudo" target="_blank" class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+                            <h3>GitHub</h3>
+                            <p>Mon Profil</p>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/votre-profil" target="_blank" class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </div>
+                            <h3>LinkedIn</h3>
+                            <p>Mon Réseau</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        <footer>
+            <p>&copy; 2025 Mohamet Thiam. Tous droits réservés.</p>
+        </footer>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Portfolio Mohamet THIAM. Tous droits réservés.</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

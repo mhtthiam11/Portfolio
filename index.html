@@ -11,19 +11,65 @@
 <body>
 
     <div id="login-overlay">
-        <div class="login-box">
-            <h2>Accès Restreint</h2>
-            <p>Veuillez entrer le code PIN pour accéder au portfolio.</p>
-            <input type="password" id="pin-input" placeholder="Code PIN " maxlength="4">
-            <button onclick="checkPin()">Entrer</button>
-            <p id="error-msg">Code incorrect</p>
+        
+        <div class="electric-border-container">
+            
+            <div class="login-box">
+                <h2>Accès Restreint</h2>
+                <p>Veuillez entrer le code PIN 👇.</p>
+                <input type="password" id="pin-input" placeholder=" 👉 PIN " maxlength="4">
+                <button onclick="checkPin()">Entrer</button>
+                <p id="error-msg">Code incorrect</p>
+            </div>
+
+            <div class="eb-layers">
+                <div id="eb-stroke" class="eb-stroke"></div>
+                <div class="eb-glow-1"></div>
+                <div class="eb-glow-2"></div>
+                <div class="eb-background-glow"></div>
+            </div>
+
+            <svg class="eb-svg" width="0" height="0">
+                <defs>
+                    <filter id="electric-filter" x="-20%" y="-20%" width="140%" height="140%">
+                        <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="10" result="noise1" seed="1" />
+                        <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
+                            <animate id="anim-dy-1" attributeName="dy" values="700; 0" dur="5.0s" repeatCount="indefinite" calcMode="linear" />
+                        </feOffset>
+
+                        <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="10" result="noise2" seed="1" />
+                        <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
+                            <animate id="anim-dy-2" attributeName="dy" values="0; -700" dur="5.0s" repeatCount="indefinite" calcMode="linear" />
+                        </feOffset>
+
+                        <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="10" result="noise1" seed="2" />
+                        <feOffset in="noise1" dx="0" dy="0" result="offsetNoise3">
+                            <animate id="anim-dx-1" attributeName="dx" values="490; 0" dur="5.0s" repeatCount="indefinite" calcMode="linear" />
+                        </feOffset>
+
+                        <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="10" result="noise2" seed="2" />
+                        <feOffset in="noise2" dx="0" dy="0" result="offsetNoise4">
+                            <animate id="anim-dx-2" attributeName="dx" values="0; -490" dur="5.0s" repeatCount="indefinite" calcMode="linear" />
+                        </feOffset>
+
+                        <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
+                        <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
+                        <feBlend in="part1" in2="part2" mode="color-dodge" result="combinedNoise" />
+                        
+                        <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="60" xChannelSelector="R" yChannelSelector="B" />
+                    </filter>
+                </defs>
+            </svg>
         </div>
-    </div>
+        </div>
 
     <div id="main-content" style="display: none;">
         
         <header>
-            <div class="logo">Mohamet Thiam</div>
+            <a href="#accueil" class="logo">
+                <img src="assets/images/logo-univ.jpg" alt="Logo Université Paris Nanterre">
+                <span>MOHAMET THIAM</span>
+            </a>
             
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -44,9 +90,12 @@
                     </li>
 
                     <li><a href="#projets">Projets</a></li>
+                    
+                    <li><a href="#certifications">Certifications</a></li>
+                    
                     <li><a href="#a-propos">À Propos</a></li>
                     <li><a href="#contact" class="btn-contact">Contact</a></li>
-                    
+
                     <li>
                         <button id="theme-toggle" class="theme-btn" title="Changer de thème">
                             <i class="fa-solid fa-moon"></i>
@@ -73,7 +122,7 @@
                         <div class="card-icon-box">
                             <i class="fa-solid fa-database"></i>
                         </div>
-                        <h3>TP 1 : Introduction aux Systèmes d’Information</h3>
+                        <h3>Introduction aux Systèmes d’Information</h3>
                         <p>Analyse et conception (SI VS PGI)</p>
                         
                         <div class="file-list">
@@ -120,7 +169,7 @@
                         <div class="card-icon-box">
                             <i class="fa-solid fa-chart-pie"></i>
                         </div>
-                        <h3>TP 2 : Diagrammes - Processus organisationnel - Odoo</h3>
+                        <h3>Diagrammes - Processus organisationnel - Odoo</h3>
                         <p>Modélisation de processus, étude de cas et pratique sur Odoo.</p>
                         
                         <div class="file-list">
@@ -205,7 +254,7 @@
                         <div class="card-icon-box">
                             <i class="fa-solid fa-diagram-project"></i>
                         </div>
-                        <h3>TP 3 : Gestion de projet</h3>
+                        <h3>Gestion de projet</h3>
                         <p>Processus de gestion & modélisation de projet.</p>
                         
                         <div class="file-list">
@@ -241,7 +290,7 @@
                         <div class="card-icon-box">
                             <i class="fa-solid fa-bars-progress"></i>
                         </div>
-                        <h3>TP 4 : Gantt - MCD</h3>
+                        <h3>Gantt - MCD</h3>
                         <p>Planification (Gantt), modélisation (MCD).</p>
                         
                         <div class="file-list">
@@ -301,7 +350,7 @@
                         <div class="card-icon-box">
                             <i class="fa-solid fa-sitemap"></i>
                         </div>
-                        <h3>TP 5 : UML</h3>
+                        <h3>UML</h3>
                         <p>Modélisation : classes et cas d'utilisation.</p>
                         
                         <div class="file-list">
@@ -469,11 +518,100 @@
 
             <section id="projets">
                 <h2>Projets</h2>
-                <div class="card">
-                    <h3>Section en construction</h3>
-                    <p>La présentation de mes projets sera disponible très bientôt !</p>
-                    <br>
-                    <i class="fa-solid fa-person-digging" style="font-size: 2rem; color: var(--primary);"></i>
+                
+                <div class="card-grid">
+                    
+                    <div class="card info-card">
+                        <div class="card-icon-box">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <h3>Contexte & Proposition de Valeur</h3>
+                        
+                        <div style="text-align: left; margin-top: 1rem; line-height: 1.6;">
+                            <p>
+                                L'entreprise **LogiFête**, spécialisée en location de matériel audiovisuel et scénique (Son, Lumière, Vidéo, Structure).
+                            </p>
+                            <p style="margin-top: 15px;">
+                                Notre projet a consisté à déployer une **solution numérique centralisée** visant à transformer ces processus archaïques en un système fiable et automatisé.
+                            </p>
+                            
+                            
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon-box">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3>Solution Web Réalisée</h3>
+                        <p>Conception et réalisation du site pour automatiser la gestion de LogiFête.</p>
+                        
+                        <div class="file-list">
+                            
+                            <div class="file-item">
+                                <span>Cahier des Charges</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/projets/cahier-des-charges.pdf" target="_blank" title="Voir le PDF">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/projets/cahier-des-charges.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="file-item">
+                                <span>Site Internet</span>
+                                <div class="file-actions">
+                                    <a href="https://logifete.xo.je/" target="_blank" title="Visiter le site" style="text-decoration: none; color: var(--primary); font-weight: bold;">
+                                        <i class="fa-solid fa-up-right-from-square"></i> Visiter
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="certifications">
+                <h2>Certifications & Divers</h2>
+                
+                <div class="card-grid">
+                    
+                    <div class="card">
+                        <div class="card-icon-box">
+                            <i class="fa-brands fa-google"></i>
+                        </div>
+                        <h3>Google Ads</h3>
+                        <p>Certification officielle sur le réseau de recherche.</p>
+                        
+                        <div class="file-list">
+                            <div class="file-item">
+                                <span>Certificat PDF</span>
+                                <div class="file-actions">
+                                    <a href="assets/downloads/perso/certif-google-ads.pdf" target="_blank" title="Voir">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </a>
+                                    <a href="assets/downloads/perso/certif-google-ads.pdf" download title="Télécharger">
+                                        <i class="fa-solid fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon-box">
+                            <i class="fa-solid fa-car"></i>
+                        </div>
+                        <h3>Mobilité</h3>
+                        <p>Titulaire du <strong>Permis B</strong>.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">Véhiculé et mobile.</p>
+                        
+                        </div>
+
                 </div>
             </section>
 
@@ -507,7 +645,7 @@
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <h3>Email</h3>
-                            <p>votre.email@exemple.com</p>
+                            <p>moustaphat275@gmail.com</p>
                         </a>
 
                         <a href="tel:+33600000000" class="contact-card">
@@ -515,23 +653,23 @@
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <h3>Téléphone</h3>
-                            <p>+33 6 00 00 00 00</p>
+                            <p>+33 7 58 41 23 91</p>
                         </a>
 
-                        <a href="https://github.com/votre-pseudo" target="_blank" class="contact-card">
+                        <a href="https://github.com/mht-thiam11" target="_blank" class="contact-card">
                             <div class="contact-icon">
                                 <i class="fa-brands fa-github"></i>
                             </div>
                             <h3>GitHub</h3>
-                            <p>Mon Profil</p>
+                            <p>Mon Profil & Code</p>
                         </a>
 
-                        <a href="https://www.linkedin.com/in/votre-profil" target="_blank" class="contact-card">
+                        <a href="https://www.linkedin.com/in/mohamet-thiam/" target="_blank" class="contact-card">
                             <div class="contact-icon">
                                 <i class="fa-brands fa-linkedin"></i>
                             </div>
                             <h3>LinkedIn</h3>
-                            <p>Mon Réseau</p>
+                            <p>Mon Parcours Pro</p>
                         </a>
                     </div>
                 </div>

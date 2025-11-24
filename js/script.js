@@ -63,5 +63,28 @@ themeBtn.addEventListener("click", () => {
         themeIcon.classList.add("fa-moon");
         localStorage.setItem("portfolio-theme", "light");
     }
-
 });
+
+// --- ANIMATION ELECTRIC BORDER ---
+function initElectricBorder() {
+    const box = document.querySelector('.electric-border-container');
+    if (!box) return;
+
+    // Récupérer la taille de la boite
+    const width = box.offsetWidth;
+    const height = box.offsetHeight;
+
+    // Mettre à jour les animations SVG pour qu'elles collent à la taille
+    // (C'est ce qui fait que l'éclair "tourne" autour)
+    document.getElementById('anim-dy-1').setAttribute('values', `${height}; 0`);
+    document.getElementById('anim-dy-2').setAttribute('values', `0; -${height}`);
+    
+    document.getElementById('anim-dx-1').setAttribute('values', `${width}; 0`);
+    document.getElementById('anim-dx-2').setAttribute('values', `0; -${width}`);
+}
+
+// Lancer l'initialisation au chargement de la page
+window.addEventListener('load', initElectricBorder);
+
+// Relancer si on redimensionne la fenêtre (pour que ça reste joli)
+window.addEventListener('resize', initElectricBorder);
